@@ -13,15 +13,13 @@ function startGame() {
     start.classList.add('hidden');
     initialText.classList.add('hidden');
     initialHeading.classList.add('hidden');
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
     questionContainer.classList.remove('hidden');
     setNextQuestion();
 }
 
 function setNextQuestion() {
     resetState()
-    showQuestion(shuffledQuestions[currentQuestionIndex])
+    showQuestion(questions[0])
 }
 
 function showQuestion(question) {
@@ -33,7 +31,6 @@ function showQuestion(question) {
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
-        button.addEventListener("click", selectAnswer)
         answerBtnText.appendChild(button)
     })
 }
@@ -43,20 +40,6 @@ function resetState(e) {
         answerBtnText.removeChild
         (answerBtnText.firstChild)
     }
-}
-
-function selectAnswer(e) {
-    let selectedBtn = e.target
-    const correct = selectedBtn.dataset.correct
-    setStatusClass(document.body, correct)
-    Array.from(answerBtnText.children).forEach(button => {
-        setStatusClass(button,button.dataset.correct)
-    })
-}
-
-function setStatusClass(element, correct) {
-    clearStatusClass(element)
-    if (correct) 
 }
 
 let questions = [
@@ -69,5 +52,27 @@ let questions = [
             {text: 'numbers', correct: false },
         ]
             
-    }
+    },
+
+    {
+        question: 'The condition in an if/else statement is enclosed within___.',
+        answer: [
+            {text: 'quotes', correct: false },
+            {text: 'parentheses', correct: true },
+            {text: 'curly brackets', correct: false },
+            {text: 'square brackets', correct: false },
+        ]
+            
+    },
+
+    {
+        question: 'Arrays in JavaScript can be used to store___',
+        answer: [
+            {text: 'numbers and strings', correct: false },
+            {text: 'other arrays', correct: false },
+            {text: 'booleans', correct: false },
+            {text: 'all of the above', correct: true },
+        ]
+            
+    },
 ]
