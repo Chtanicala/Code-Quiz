@@ -1,6 +1,20 @@
+
 .container {
   display: flex;
   flex-direction:column;
   justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
+.answerButtons {
+  display:grid;
+  grid-template-columns: repeat(1, auto);
+  gap: 10px;
+  margin: 15px
+}
