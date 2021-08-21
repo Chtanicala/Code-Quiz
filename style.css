@@ -12,9 +12,17 @@
   padding: 2rem;
 }
 
+#QuestionContainer {
+  margin: 20px;
+}
+
 .answerButtons {
   display:grid;
   grid-template-columns: repeat(1, auto);
   gap: 10px;
   margin: 15px
 }
+/* 
+.hidden {
+  display: none;
+} */
